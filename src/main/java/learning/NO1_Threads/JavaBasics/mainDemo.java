@@ -5,6 +5,6 @@ package learning.NO1_Threads.JavaBasics;
  */
 public class mainDemo {
     public static void main(String[] args) {
-
+        System.out.println("测试代码！");
     }
 }

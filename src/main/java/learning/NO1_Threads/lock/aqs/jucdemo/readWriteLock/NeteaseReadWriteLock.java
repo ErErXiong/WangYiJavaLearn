@@ -1,6 +1,7 @@
 package learning.NO1_Threads.lock.aqs.jucdemo.readWriteLock;
 
-import com.study.lock.aqs.AQSdemo;
+
+import learning.NO1_Threads.lock.aqs.AQSdemo;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Condition;

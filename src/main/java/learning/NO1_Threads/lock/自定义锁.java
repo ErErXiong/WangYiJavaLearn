@@ -20,6 +20,8 @@ public class 自定义锁 implements Lock {
 
     @Override
     public boolean tryLock() {
+
+
         // 当前值为null,就把当前线程放入owner中
         return owner.compareAndSet(null,Thread.currentThread());
     }

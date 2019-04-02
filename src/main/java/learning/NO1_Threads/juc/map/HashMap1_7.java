@@ -720,6 +720,9 @@ public class HashMap1_7<K,V>
 
         // assert Integer.bitCount(length) == 1 : "length must be a non-zero power of 2";
         // 简单理解就是hash值和长度取模
+        /*
+            位与运算符（&）运算规则：两个数都转为二进制，然后从高位开始比较，如果两个数都为1则为1，否则为0。
+         */
         return h & (length-1);
 
     }
@@ -939,9 +942,9 @@ public class HashMap1_7<K,V>
 
         }
         // 如果 key 为 null，感兴趣的可以往里看，最终会将这个 entry 放到 table[0] 中
-        if (key == null)
-
+        if (key == null){
             return putForNullKey(value);
+        }
         // 1. 求 key 的 hash 值
         int hash = hash(key);
         // 2. 找到对应的数组下标
@@ -1635,9 +1638,9 @@ public class HashMap1_7<K,V>
 
          * This method is invoked whenever the value in an entry is
 
-         * overwritten by an invocation of put(k,v) for a key k that's already
+          overwritten by an invocation of put(k,v) for a key k that's already
 
-         * in the HashMap.
+          in the HashMap.
 
          */
 

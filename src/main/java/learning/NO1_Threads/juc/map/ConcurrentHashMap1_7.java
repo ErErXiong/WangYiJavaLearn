@@ -543,11 +543,11 @@ public class ConcurrentHashMap1_7<K, V> extends AbstractMap<K, V>
 
         /**
          * Scans for a node containing given key while trying to
-         * acquire lock, creating and returning one if not found. Upon
-         * return, guarantees that lock is held. UNlike in most
-         * methods, calls to method equals are not screened: Since
-         * traversal speed doesn't matter, we might as well help warm
-         * up the associated code and accesses as well.
+          acquire lock, creating and returning one if not found. Upon
+          return, guarantees that lock is held. UNlike in most
+          methods, calls to method equals are not screened: Since
+          traversal speed doesn't matter, we might as well help warm
+          up the associated code and accesses as well.
          *
          * @return a new node if key not found, else null
          */
@@ -572,7 +572,7 @@ public class ConcurrentHashMap1_7<K, V> extends AbstractMap<K, V>
                 else if (++retries > MAX_SCAN_RETRIES) { // 最多tryLock次数，超过次数，就阻塞
                     lock();
                     break;
-                }
+                }     //通过hash值判断目前链表头部,hash值判断, 不一致则,重新更新
                 else if ((retries & 1) == 0 &&
                          (f = entryForHash(this, hash)) != first) {
                     e = first = f; // re-traverse if entry changed

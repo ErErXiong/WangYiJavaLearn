@@ -15,7 +15,9 @@ public class FullGCDemo2 {
         for (int i = 0; i < 1000; i++) {
             WorkbookSettings workbookSettings = new WorkbookSettings();
             workbookSettings.setGCDisabled(true);
-            Workbook book = Workbook.getWorkbook(new File(FullGCDemo2.class.getClassLoader().getResource("files/FullGCDemo2.xls").getFile()), workbookSettings);
+            // new File 路径中不能有空格
+            File file = new File(FullGCDemo2.class.getClassLoader().getResource("files/FullGCDemo2.xls").getFile());
+            Workbook book = Workbook.getWorkbook(file, workbookSettings);
             // 获得第一个工作表对象
             Sheet sheet = book.getSheet(0);
             // 得到第一列第一行的单元格
